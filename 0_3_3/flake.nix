@@ -11,7 +11,6 @@
   inputs.src-boxy-0_3_3.ref   = "refs/tags/0.3.3";
   inputs.src-boxy-0_3_3.owner = "treeform";
   inputs.src-boxy-0_3_3.repo  = "boxy";
-  inputs.src-boxy-0_3_3.dir   = "";
   inputs.src-boxy-0_3_3.type  = "github";
   
   inputs."pixie".owner = "nim-nix-pkgs";

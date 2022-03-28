@@ -11,7 +11,6 @@
   inputs.src-boxy-master.ref   = "refs/heads/master";
   inputs.src-boxy-master.owner = "treeform";
   inputs.src-boxy-master.repo  = "boxy";
-  inputs.src-boxy-master.dir   = "";
   inputs.src-boxy-master.type  = "github";
   
   inputs."pixie".owner = "nim-nix-pkgs";
