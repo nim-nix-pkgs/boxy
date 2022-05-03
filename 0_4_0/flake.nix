@@ -7,11 +7,19 @@
   inputs.flakeNimbleLib.type  = "github";
   inputs.flakeNimbleLib.inputs.nixpkgs.follows = "nixpkgs";
   
-  inputs.src-boxy-master.flake = false;
-  inputs.src-boxy-master.ref   = "refs/heads/master";
-  inputs.src-boxy-master.owner = "treeform";
-  inputs.src-boxy-master.repo  = "boxy";
-  inputs.src-boxy-master.type  = "github";
+  inputs.src-boxy-0_4_0.flake = false;
+  inputs.src-boxy-0_4_0.ref   = "refs/tags/0.4.0";
+  inputs.src-boxy-0_4_0.owner = "treeform";
+  inputs.src-boxy-0_4_0.repo  = "boxy";
+  inputs.src-boxy-0_4_0.type  = "github";
+  
+  inputs."shady".owner = "nim-nix-pkgs";
+  inputs."shady".ref   = "master";
+  inputs."shady".repo  = "shady";
+  inputs."shady".dir   = "0_1_0";
+  inputs."shady".type  = "github";
+  inputs."shady".inputs.nixpkgs.follows = "nixpkgs";
+  inputs."shady".inputs.flakeNimbleLib.follows = "flakeNimbleLib";
   
   inputs."pixie".owner = "nim-nix-pkgs";
   inputs."pixie".ref   = "master";
@@ -20,14 +28,6 @@
   inputs."pixie".type  = "github";
   inputs."pixie".inputs.nixpkgs.follows = "nixpkgs";
   inputs."pixie".inputs.flakeNimbleLib.follows = "flakeNimbleLib";
-  
-  inputs."vmath".owner = "nim-nix-pkgs";
-  inputs."vmath".ref   = "master";
-  inputs."vmath".repo  = "vmath";
-  inputs."vmath".dir   = "1_1_4";
-  inputs."vmath".type  = "github";
-  inputs."vmath".inputs.nixpkgs.follows = "nixpkgs";
-  inputs."vmath".inputs.flakeNimbleLib.follows = "flakeNimbleLib";
   
   inputs."opengl".owner = "nim-nix-pkgs";
   inputs."opengl".ref   = "master";
@@ -48,13 +48,13 @@
   outputs = { self, nixpkgs, flakeNimbleLib, ...}@deps:
   let 
     lib  = flakeNimbleLib.lib;
-    args = ["self" "nixpkgs" "flakeNimbleLib" "src-boxy-master"];
+    args = ["self" "nixpkgs" "flakeNimbleLib" "src-boxy-0_4_0"];
     over = if builtins.pathExists ./override.nix 
            then { override = import ./override.nix; }
            else { };
   in lib.mkRefOutput (over // {
     inherit self nixpkgs ;
-    src  = deps."src-boxy-master";
+    src  = deps."src-boxy-0_4_0";
     deps = builtins.removeAttrs deps args;
     meta = builtins.fromJSON (builtins.readFile ./meta.json);
   } );
