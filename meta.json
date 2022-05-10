@@ -7,7 +7,7 @@
   "license": "MIT",
   "web": "https://github.com/treeform/boxy",
   "refs": [
-    "fatal: unable to access 'https://github.com/treeform/boxy/': SSL connection timeout",
+    "fatal: unable to access 'https://github.com/treeform/boxy/': OpenSSL SSL_read: Network is unreachable, errno 101",
     ""
   ],
   "heads": []
